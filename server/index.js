@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const signin = require("../Controller/loginuser");
-const signup = require("../Controller/register");
-const forgetPassword = require("../Controller/forgetpassword");
+const signin = require("../Controllers/loginuser");
+const signup = require("../Controllers/register");
+const forgetPassword = require("../Controllers/forgetpassword");
+require("../DB");
 const app = express();
 // Use CORS middleware
 app.use(cors());
