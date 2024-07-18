@@ -12,8 +12,7 @@ app.use(express.json());
 
 app.post("/login", signin);
 app.post("/register", signup);
-app.post("/forget-password", forgetPassword);
-
+app.put("/forget-password", forgetPassword);
 const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

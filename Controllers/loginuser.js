@@ -1,16 +1,18 @@
 const express = require("express");
 const loginSchema = require("../Models/loginuserModel");
-console.log({ loginSchema });
 async function handleSignIn(req, res) {
   try {
-    const newUser = new loginSchema({
+    const users = await loginSchema.findOne({
       email: req.body.email,
       password: req.body.password,
     });
-    console.log(newUser);
-    await newUser.save();
-    res.json({ message: "User Logged In" });
-    console.log({ request: req.body });
+    if (users) {
+      res.json({ message: "User Logged In" });
+      console.log("User Logged In");
+    } else {
+      res.json({ message: "User Not found" });
+      console.log("User Not found ");
+    }
   } catch (error) {
     console.error(error);
   }
